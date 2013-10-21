@@ -85,12 +85,11 @@ public abstract class OgnlOps implements NumericTypes
 
             case NONNUMERIC:
                 if ((t1 == NONNUMERIC) && (t2 == NONNUMERIC)) {
-                    if ((v1 instanceof Comparable) && v1.getClass().isAssignableFrom(v2.getClass())) {
+                    if ((v1 instanceof Comparable)) {
                         result = ((Comparable) v1).compareTo(v2);
                         break;
                     } else {
-                        throw new IllegalArgumentException("invalid comparison: " + v1.getClass().getName() + " and "
-                                + v2.getClass().getName());
+                        result = -1;
                     }
                 }
                 // else fall through
